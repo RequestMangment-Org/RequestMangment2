@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run vercel-build",
+  "buildCommand": "npm install --legacy-peer-deps && ng build --configuration production",
   "outputDirectory": "dist/request-mangment",
   "framework": null
 }
