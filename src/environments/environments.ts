@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:7272/api',
-  url: 'https://localhost:7272/'
+  apiUrl: 'http://rahhala-002-site1.jtempurl.com/api',
+  url: 'http://rahhala-002-site1.jtempurl.com/'
 };
