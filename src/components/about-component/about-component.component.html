@@ -1,0 +1,32 @@
+<div class="about-us-container">
+  <h1 class="page-title">من نحن</h1>
+  <div class="about-us-grid" *ngIf="!loading; else loadingTemplate">
+    <div class="about-us-card" *ngFor="let aboutUs of aboutUsList">
+      <div class="content-container">
+        <h2 class="card-title">{{aboutUs.titileAr}}</h2>
+        <!-- <p class="description-ar">{{aboutUs.descriptionAr}}</p> -->
+      </div>
+      <div class="media-container" *ngIf="aboutUs.filePath">
+        <img [src]="aboutUs.filePath" alt="About Us Image" *ngIf="!isVideo(aboutUs.filePath)">
+        <div class="video-wrapper" *ngIf="isVideo(aboutUs.filePath)">
+          <video controls>
+            <source [src]="aboutUs.filePath" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <a class="play-btn" (click)="openVideo(aboutUs.filePath)">
+            <i class="fas fa-play"></i>
+          </a>
+        </div>
+      </div>
+      <div class="content-container">
+        <h3 class="card-title-en">{{aboutUs.titileEn}}</h3>
+        <p class="description-en">{{aboutUs.descriptionEn}}</p>
+       
+      </div>
+    </div>
+  </div>
+  <ng-template #loadingTemplate>
+    <div class="loading-spinner">جاري التحميل...</div>
+  </ng-template>
+  <div class="error-message" *ngIf="error">{{error}}</div>
+</div>

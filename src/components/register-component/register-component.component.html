@@ -1,0 +1,48 @@
+<main id="register">
+  <section class="space pt-0">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+          <div class="woocommerce-form-register bg-light p-4 rounded shadow-sm" style="direction: rtl; text-align: right;">
+            <h2 class="text-center mb-4">تسجيل الدخول</h2>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="woocommerce-form-register">
+              <div class="form-group mb-3">
+                <label class="form-label fw-bold">الاسم </label>
+                <input type="text" class="form-control large-input" formControlName="fullName" placeholder="يرجى إدخال الاسم " style="text-align: right;" required>
+                @if (loginForm.get('fullName')?.invalid && loginForm.get('fullName')?.touched) {
+                  <div class="text-danger" style="text-align: right;">الاسم  مطلوب</div>
+                }
+              </div>
+             <div class="form-group mb-3">
+  <label class="form-label fw-bold">رقم الجوال</label>
+  <input type="tel" class="form-control large-input" formControlName="phoneNumber"  placeholder=" 05xxxxxxxx"  style="text-align: right;" required
+  >
+  @if (loginForm.get('phoneNumber')?.invalid && loginForm.get('phoneNumber')?.touched) {
+    <div class="text-danger" style="text-align: right;">
+      @if (loginForm.get('phoneNumber')?.errors?.['required']) {
+        <div>حقل رقم الجوال مطلوب</div>
+      }
+      @if (loginForm.get('phoneNumber')?.errors?.['pattern']) {
+        <div>يجب أن يبدأ الرقم بـ 05 ويتكون من 10 أرقام</div>
+      }
+    </div>
+  }
+</div>
+              <!-- <div class="form-group mb-3">
+                <label class="form-label fw-bold">كلمة المرور</label>
+                <input type="password" class="form-control large-input" formControlName="password" placeholder="يرجى إدخال كلمة المرور" style="text-align: right;" required>
+                @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+                  <div class="text-danger" style="text-align: right;">كلمة المرور يجب أن تكون من 1 إلى 6 أرقام</div>
+                }
+              </div> -->
+              <div class="form-group text-center">
+                <button type="submit" class="th-btn w-100" [disabled]="loginForm.invalid">تسجيل</button>
+              </div>
+              <!-- <p class="text-center mt-3">كلمة المرور الافتراضية هي ١٢٣٤٥٦</p> -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

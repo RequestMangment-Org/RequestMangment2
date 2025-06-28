@@ -1,0 +1,155 @@
+.about-us-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.about-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.about-us-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.about-us-card:hover {
+  transform: translateY(-5px);
+}
+
+.media-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.media-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.play-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.play-btn i {
+  font-size: 24px;
+}
+
+.content-container {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.card-title-en {
+  font-size: 1.6rem;
+  color: #34495e;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.description-ar {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  text-align: right;
+}
+
+
+description-en {
+  font-size: 1rem;
+  color: #777;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.details-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #3498db;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.details-btn:hover {
+  background: #2980b9;
+}
+
+.loading-spinner {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  padding: 50px 0;
+}
+
+.error-message {
+  text-align: center;
+  color: #e74c3c;
+  font-size: 1.2rem;
+  padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-us-grid {
+    grid-template-columns: 1fr;
+  }
+}

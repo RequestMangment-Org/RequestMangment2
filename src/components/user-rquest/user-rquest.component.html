@@ -1,0 +1,69 @@
+<!-- <div class="custom-card">
+  <div class="card-header-custom">
+    <h3 class="header-title">قائمة الطلبات</h3>
+  </div>
+
+  <div class="card-body-custom">
+    <div *ngIf="isLoading" class="loading-state">
+      <div class="loading-spinner"></div>
+      <p class="loading-text">جاري تحميل البيانات...</p>
+    </div>
+    <div *ngIf="errorMessage" class="error-alert">
+      <i class="fas fa-exclamation-circle alert-icon"></i>
+      <span class="error-message">{{ errorMessage }}</span>
+      <button class="close-btn" (click)="errorMessage = ''">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div *ngIf="!isLoading && !errorMessage" class="table-container">
+      <table class="custom-table">
+        <thead>
+          <tr class="table-header-row">
+            <th *ngFor="let header of headers" class="table-header-cell">
+              {{ header }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of requests; let i = index" class="table-data-row">
+            <td class="table-data-cell">{{ i + 1 }}</td>
+            <td class="table-data-cell">{{ request.fullName }}</td>
+            <td class="table-data-cell phone-number">{{ request.phoneNumber }}</td>
+            <td class="table-data-cell">{{ formatDate(request.birthDate) }}</td>
+            <td class="table-data-cell">{{ request.isInClub ? 'نعم' : 'لا' }}</td>
+            <td class="table-data-cell">{{ request.clubName || '-' }}</td>
+            <td class="table-data-cell">{{ request.hasSchengenVisa ? 'نعم' : 'لا' }}</td>
+            <td class="table-data-cell">
+              <div class="file-container">
+                <ng-container *ngIf="request.visaFilePath">
+                  <a *ngIf="isPdf(request.visaFilePath)" (click)="openInNewTab(request.visaFilePath)" style="cursor: pointer;">عرض PDF</a>
+                  <img *ngIf="isImage(request.visaFilePath)" [src]="request.visaFilePath" alt="ملف التأشيرة" 
+                       class="img-thumbnail" style="max-width: 100px; cursor: pointer;" 
+                       (click)="openInNewTab(request.visaFilePath)">
+                  <span *ngIf="!isPdf(request.visaFilePath) && !isImage(request.visaFilePath)">غير مدعوم</span>
+                </ng-container>
+                <span *ngIf="!request.visaFilePath">-</span>
+              </div>
+            </td>
+            <td class="table-data-cell">{{ request.hasParentApproval ? 'نعم' : 'لا' }}</td>
+            <td class="table-data-cell">
+              <div class="file-container">
+                <ng-container *ngIf="request.approvalFilePath">
+                  <a *ngIf="isPdf(request.approvalFilePath)" (click)="openInNewTab(request.approvalFilePath)" style="cursor: pointer;">عرض PDF</a>
+                  <img *ngIf="isImage(request.approvalFilePath)" [src]="request.approvalFilePath" alt="ملف الموافقة" 
+                       class="img-thumbnail" style="max-width: 100px; cursor: pointer;" 
+                       (click)="openInNewTab(request.approvalFilePath)">
+                  <span *ngIf="!isPdf(request.approvalFilePath) && !isImage(request.approvalFilePath)">غير مدعوم</span>
+                </ng-container>
+                <span *ngIf="!request.approvalFilePath">-</span>
+              </div>
+            </td>
+            <td class="table-data-cell">{{ formatDate(request.submissionDate) }}</td>
+           
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+<h1>sadsa</h1>

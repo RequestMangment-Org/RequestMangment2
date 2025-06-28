@@ -1,0 +1,51 @@
+<div class="card p-5 max-w-5xl mx-auto rtl text-right">
+  <p-toast></p-toast>
+  <form (ngSubmit)="onSubmit()" #aboutUsForm="ngForm">
+    <div class="grid formgrid p-fluid">
+      <div class="field col-12 md:col-6">
+        <label for="titileAr">العنوان (عربي)</label>
+        <input pInputText id="titileAr" [(ngModel)]="aboutUs.titileAr" name="titileAr" required class="w-full" />
+      </div>
+
+      <div class="field col-12 md:col-6">
+        <label for="titileEn">العنوان (إنجليزي)</label>
+        <input pInputText id="titileEn" [(ngModel)]="aboutUs.titileEn" name="titileEn" required class="w-full" />
+      </div>
+
+      <div class="field col-12">
+        <label for="descriptionAr">الوصف (عربي)</label>
+        <textarea pInputTextarea id="descriptionAr" [(ngModel)]="aboutUs.descriptionAr" name="descriptionAr" rows="4" class="w-full" required></textarea>
+      </div>
+
+      <div class="field col-12">
+        <label for="descriptionEn">الوصف (إنجليزي)</label>
+        <textarea pInputTextarea id="descriptionEn" [(ngModel)]="aboutUs.descriptionEn" name="descriptionEn" rows="4" class="w-full" required></textarea>
+      </div>
+
+      <div class="field col-12">
+        <label for="file">ملف</label>
+        <p-fileUpload 
+          name="file" 
+          mode="basic" 
+          chooseLabel="اختر ملف" 
+          (onSelect)="onFileUpload($event)"
+          accept="video/*,image/*,.pdf"
+          [maxFileSize]="100000000" 
+          [showUploadButton]="false">
+        </p-fileUpload>
+        <small *ngIf="aboutUs.file">{{aboutUs.file.name}}</small>
+      </div>
+
+      <div class="col-12 text-center mt-4">
+        <button 
+          pButton 
+          type="submit" 
+          label="حفظ" 
+          class="p-button-success" 
+          [disabled]="!aboutUsForm.form.valid || loading"
+          [loading]="loading">
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

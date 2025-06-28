@@ -1,0 +1,51 @@
+.th-header.header-layout1.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    padding-top: 150px;
+    /* Adjust for sticky header */
+}
+
+/* Ensure text alignment for LTR */
+body {
+    direction: ltr;
+    text-align: left;
+}
+
+.header-links ul li,
+.header-social,
+.footer-contact,
+.th-widget-about,
+.recent-post-meta,
+.woocommerce-form-register,
+.woocommerce-mini-cart__total,
+.woocommerce-mini-cart__buttons {
+    text-align: left;
+}
+
+.woocommerce-form-register h2,
+.woocommerce-form-register p {
+    text-align: center;
+}
+
+.form-group label {
+    display: block;
+    text-align: left;
+}
+
+.form-control {
+    width: 100%;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .header-logo img {
+        max-height: 40px;
+    }
+}

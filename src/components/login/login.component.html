@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ar">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>تسجيل الدخول - وبتيك</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  
+</head>
+<body dir="rtl">
+    <main>
+        <section class="login-section">
+            <div class="login-form">
+                <div class="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h2>تسجيل الدخول</h2>
+                <div class="error-message" *ngIf="errorMessage">
+                    {{ errorMessage }}
+                </div>
+
+               
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="input-group">
+                        <input type="email" formControlName="email" placeholder="البريد الإلكتروني" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" formControlName="password" placeholder="كلمة المرور" required>
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <button type="submit" class="th-btn" [disabled]="isLoading">
+                        {{ isLoading ? 'جاري التحميل...' : 'تسجيل الدخول' }}
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

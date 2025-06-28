@@ -1,0 +1,139 @@
+
+    /* إعادة تعيين التنسيقات الأساسية */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    /* تنسيق الهيدر */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, #4a6bff 0%, #2541b2 100%);
+      color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .user-controls {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logout-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+
+    .logout-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* تنسيق الشريط الجانبي */
+    .sidebar {
+      width: 280px;
+      background: white;
+      padding: 20px 0;
+      height: 100vh;
+      position: fixed;
+      right: 0;
+      top: 70px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+      border-left: 1px solid #eee;
+    }
+
+    .sidebar h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #4a6bff;
+      padding: 0 20px;
+      font-weight: 700;
+    }
+
+    .nav-menu {
+      padding: 0 15px;
+    }
+
+    .nav-item {
+      margin-bottom: 5px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      color: #555;
+      text-decoration: none;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background-color: #f0f5ff;
+      color: #4a6bff;
+    }
+
+    .nav-link i {
+      margin-left: 10px;
+      font-size: 1.2rem;
+    }
+
+    /* تنسيق المحتوى الرئيسي */
+    .content {
+      margin-right: 280px;
+      margin-top: 70px;
+      padding: 30px;
+      min-height: calc(100vh - 70px);
+      background-color: #f5f7fa;
+    }
+
+    /* تأثيرات الحركة */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .content {
+      animation: fadeIn 0.5s ease-out;
+    }

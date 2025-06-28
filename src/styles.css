@@ -1,0 +1,10 @@
+
+
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+label {
+  font-weight: 600;
+}

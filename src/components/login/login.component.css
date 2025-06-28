@@ -1,0 +1,194 @@
+
+        /* تنسيق الخلفية مع تأثير الموجات */
+        .login-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #1e3c72, #2a5298, #1e3c72);
+            background-size: 400%;
+            animation: gradient 15s ease infinite;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* تنسيسات الموجات المتحركة */
+        .waves {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background-repeat: repeat no-repeat;
+            background-position: 0 bottom;
+            transform-origin: center bottom;
+        }
+
+        .wave1 {
+            background-size: 50% 100px;
+            animation: wave 7s linear infinite;
+            opacity: 0.5;
+        }
+
+        .wave2 {
+            background-size: 50% 120px;
+            animation: wave 10s linear infinite reverse;
+            opacity: 0.3;
+        }
+
+        .wave3 {
+            background-size: 50% 80px;
+            animation: wave 5s linear infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0) translateZ(0) scaleY(1); }
+            50% { transform: translateX(-25%) translateZ(0) scaleY(0.8); }
+            100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+        }
+
+        /* تنسيق نموذج تسجيل الدخول */
+        .login-form {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px; /* زيادة الانحناء ليتناسب مع الحجم الأكبر */
+            padding: 50px; /* زيادة التباعد الداخلي */
+            max-width: 500px; /* زيادة العرض الأقصى لتكبير النموذج */
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* أيقونة المستخدم */
+        .user-icon {
+            width: 100px; /* زيادة حجم الأيقونة لتتناسب مع النموذج الأكبر */
+            height: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .user-icon i {
+            font-size: 50px; /* زيادة حجم الأيقونة */
+            color: #fff;
+        }
+
+        /* عنوان تسجيل الدخول */
+        .login-form h2 {
+            color: #fff;
+            font-size: 28px; /* زيادة حجم العنوان */
+            margin-bottom: 25px;
+        }
+
+        /* تنسيق حقول الإدخال */
+        .input-group {
+            position: relative;
+            margin-bottom: 25px; /* زيادة المسافة بين الحقول */
+        }
+
+        .input-group i {
+            position: absolute;
+            right: 15px; /* تعديل الموقع ليتناسب مع الحجم الأكبر */
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ccc;
+            font-size: 18px; /* زيادة حجم الأيقونة */
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 40px 12px 15px; /* زيادة التباعد الداخلي للحقول */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 18px; /* زيادة حجم الخط */
+        }
+
+        .input-group input::placeholder {
+            color: #ccc;
+        }
+
+        /* تنسيق خيار تذكرني */
+        .form-options {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .form-options label {
+            display: flex;
+            align-items: center;
+            font-size: 16px; /* زيادة حجم النص */
+        }
+
+        .form-options input[type="checkbox"] {
+            margin-left: 8px; /* زيادة المسافة بين مربع الاختيار والنص */
+            width: 18px; /* زيادة حجم مربع الاختيار */
+            height: 18px;
+        }
+
+        /* زر تسجيل الدخول */
+        .th-btn {
+            width: 100%;
+            padding: 15px; /* زيادة ارتفاع الزر */
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            color: #fff;
+            font-size: 18px; /* زيادة حجم النص */
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .th-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .th-btn:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        /* رسالة الخطأ */
+        .error-message {
+            color: #ff4d4d;
+            font-size: 16px; /* زيادة حجم النص */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+  

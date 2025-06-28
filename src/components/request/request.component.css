@@ -1,0 +1,90 @@
+ body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .card {
+            max-width: 700px;
+            margin: 2rem auto;
+            border-radius: 10px;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            text-align: right;
+            border-radius: 10px 10px 0 0;
+        }
+        .card-title {
+            margin-bottom: 0;
+        }
+        .card-body {
+            text-align: right;
+            padding: 2rem;
+        }
+        .form-group {
+            text-align: right;
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .form-control {
+            text-align: right;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+        .form-control::placeholder {
+            text-align: right;
+        }
+        .form-check {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 0.75rem;
+            justify-content: flex-end;
+            width: 100%;
+        }
+        .form-check-label {
+            margin-right: 0.75rem;
+            flex-grow: 1;
+            text-align: right;
+        }
+        .form-check-input {
+            margin: 0;
+            order: 1;
+        }
+        .invalid-feedback {
+            text-align: right;
+            font-size: 0.875rem;
+        }
+        .text-muted {
+            text-align: right;
+            font-size: 0.875rem;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-primary:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        .alert {
+            margin-top: 1rem;
+            text-align: right;
+            border-radius: 5px;
+        }
+        .loading-spinner {
+            margin-left: 0.5rem;
+        }
+        .footer-notice .card-body {
+            text-align: right;
+            font-size: 0.9rem;
+        }

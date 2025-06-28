@@ -1,0 +1,88 @@
+<div class="custom-card">
+  <p-card >
+     <ng-template pTemplate="header">
+    <div class="card-header-custom">
+      <h3 class="header-title">قائمة الطلبات</h3>
+    </div>
+  </ng-template>
+    <div class="card-body-custom">
+      <!-- Search Field -->
+      <div class="p-inputgroup search-container">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-search"></i>
+        </span>
+        <input
+          type="text"
+          pInputText
+          placeholder="ابحث باستخدام الاسم، رقم الهاتف، أو اسم النادي"
+          [(ngModel)]="searchTerm"
+          (input)="filterRequests()"
+        />
+      </div>
+
+
+      <div *ngIf="isLoading" class="loading-state">
+        <p-progressSpinner></p-progressSpinner>
+        <p class="loading-text">جاري تحميل البيانات...</p>
+      </div>
+      <p-message *ngIf="errorMessage" severity="error" (close)="errorMessage = null">
+        <i class="pi pi-exclamation-circle alert-icon"></i>
+        <span class="error-message">{{ errorMessage }}</span>
+      </p-message>
+
+      <!-- Table -->
+      <div *ngIf="!isLoading && !errorMessage" class="table-container">
+        <p-table [value]="filteredRequests" [paginator]="true" [rows]="10" [responsive]="true">
+          <ng-template pTemplate="header">
+            <tr class="table-header-row">
+              <th *ngFor="let header of headers" class="table-header-cell">
+                {{ header }}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-request let-i="rowIndex">
+            <tr class="table-data-row">
+              <td class="table-data-cell">{{ i + 1 }}</td>
+              <td class="table-data-cell">{{ request.fullName }}</td>
+              <td class="table-data-cell phone-number">{{ request.phoneNumber }}</td>
+              <td class="table-data-cell">{{ formatDate(request.birthDate) }}</td>
+              <td class="table-data-cell">{{ request.isInClub ? 'نعم' : 'لا' }}</td>
+              <td class="table-data-cell">{{ request.clubName || '-' }}</td>
+              <td class="table-data-cell">{{ request.hasSchengenVisa ? 'نعم' : 'لا' }}</td>
+              <td class="table-data-cell">
+                <div class="file-container">
+                  <ng-container *ngIf="request.visaFilePath">
+                    <a *ngIf="isPdf(request.visaFilePath)" (click)="openInNewTab(request.visaFilePath)" style="cursor: pointer;">عرض PDF</a>
+                    <img *ngIf="isImage(request.visaFilePath)" [src]="request.visaFilePath" alt="ملف التأشيرة" 
+                         class="img-thumbnail" style="max-width: 100px; cursor: pointer;" 
+                         (click)="openInNewTab(request.visaFilePath)">
+                    <span *ngIf="!isPdf(request.visaFilePath) && !isImage(request.visaFilePath)">غير مدعوم</span>
+                  </ng-container>
+                  <span *ngIf="!request.visaFilePath">-</span>
+                </div>
+              </td>
+              <td class="table-data-cell">{{ request.hasParentApproval ? 'نعم' : 'لا' }}</td>
+              <td class="table-data-cell">
+                <div class="file-container">
+                  <ng-container *ngIf="request.approvalFilePath">
+                    <a *ngIf="isPdf(request.approvalFilePath)" (click)="openInNewTab(request.approvalFilePath)" style="cursor: pointer;">عرض PDF</a>
+                    <img *ngIf="isImage(request.approvalFilePath)" [src]="request.approvalFilePath" alt="ملف الموافقة" 
+                         class="img-thumbnail" style="max-width: 100px; cursor: pointer;" 
+                         (click)="openInNewTab(request.approvalFilePath)">
+                    <span *ngIf="!isPdf(request.approvalFilePath) && !isImage(request.approvalFilePath)">غير مدعوم</span>
+                  </ng-container>
+                  <span *ngIf="!request.approvalFilePath">-</span>
+                </div>
+              </td>
+              <td class="table-data-cell">{{ formatDate(request.submissionDate) }}</td>
+              <td class="table-data-cell">
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" 
+                        (click)="deleteRequest(request.id, i)"></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </p-card>
+</div>

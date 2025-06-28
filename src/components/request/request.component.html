@@ -1,0 +1,196 @@
+<div class="request-container" dir="rtl">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h2 class="text-center mb-0">نموذج تقديم الطلب</h2>
+    </div>
+    
+    <div class="card-body">
+      <!-- Notification for existing request -->
+      @if (isEditMode) {
+        <div class="alert alert-info text-center">
+          <i class="fas fa-info-circle me-2"></i>
+          أنت تقوم بتعديل طلبك السابق
+        </div>
+      }
+
+      @if (successMessage) {
+        <div class="alert alert-success text-center">
+          <i class="fas fa-check-circle me-2"></i>
+          {{ successMessage }}
+        </div>
+      }
+
+      @if (errorMessage) {
+        <div class="alert alert-danger text-center">
+          <i class="fas fa-exclamation-circle me-2"></i>
+          {{ errorMessage }}
+        </div>
+      }
+
+      <form [formGroup]="requestForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+        <!-- Personal Information Section -->
+        <fieldset class="mb-4">
+          <!-- Full Name -->
+          <div class="mb-3">
+            <label for="fullName" class="form-label">الاسم الكامل</label>
+            <input type="text" class="form-control" id="fullName" formControlName="fullName"
+                   [class.is-invalid]="requestForm.get('fullName')?.invalid && (requestForm.get('fullName')?.touched || isSubmitted)">
+            @if (requestForm.get('fullName')?.invalid && (requestForm.get('fullName')?.touched || isSubmitted)) {
+              <div class="invalid-feedback">
+                @if (requestForm.get('fullName')?.errors?.['required']) {
+                  <div>حقل الاسم الكامل مطلوب</div>
+                }
+                @if (requestForm.get('fullName')?.errors?.['maxlength']) {
+                  <div>يجب ألا يتجاوز الاسم 100 حرف</div>
+                }
+              </div>
+            }
+          </div>
+
+          <!-- Phone Number -->
+          <div class="mb-3">
+            <label for="phoneNumber" class="form-label">رقم الجوال</label>
+            <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber"
+                   [class.is-invalid]="requestForm.get('phoneNumber')?.invalid && (requestForm.get('phoneNumber')?.touched || isSubmitted)">
+            @if (requestForm.get('phoneNumber')?.invalid && (requestForm.get('phoneNumber')?.touched || isSubmitted)) {
+              <div class="invalid-feedback">
+                @if (requestForm.get('phoneNumber')?.errors?.['required']) {
+                  <div>حقل رقم الجوال مطلوب</div>
+                }
+                @if (requestForm.get('phoneNumber')?.errors?.['pattern']) {
+                  <div>يجب أن يبدأ الرقم بـ 05 ويتكون من 10 أرقام</div>
+                }
+              </div>
+            }
+          </div>
+
+          <!-- Birth Date -->
+          <div class="mb-3">
+            <label for="birthDate" class="form-label">تاريخ الميلاد</label>
+            <input type="date" class="form-control" id="birthDate" formControlName="birthDate"
+                   [class.is-invalid]="requestForm.get('birthDate')?.invalid && (requestForm.get('birthDate')?.touched || isSubmitted)">
+            @if (requestForm.get('birthDate')?.invalid && (requestForm.get('birthDate')?.touched || isSubmitted)) {
+              <div class="invalid-feedback">
+                @if (requestForm.get('birthDate')?.errors?.['required']) {
+                  <div>حقل تاريخ الميلاد مطلوب</div>
+                }
+                @if (requestForm.get('birthDate')?.errors?.['futureDate']) {
+                  <div>لا يمكن أن يكون تاريخ الميلاد في المستقبل</div>
+                }
+                @if (requestForm.get('birthDate')?.errors?.['tooOld']) {
+                  <div>العمر المدخل غير منطقي</div>
+                }
+              </div>
+            }
+          </div>
+        </fieldset>
+
+        <!-- Club Information Section -->
+        <fieldset class="mb-4">
+          <!-- Is in Club -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="isInClub" formControlName="isInClub">
+            <label class="form-check-label" for="isInClub">هل أنت عضو في نادي رياضي؟</label>
+          </div>
+
+          <!-- Club Name -->
+          @if (requestForm.get('isInClub')?.value) {
+            <div class="mb-3">
+              <label for="clubName" class="form-label">اسم النادي</label>
+              <input type="text" class="form-control" id="clubName" formControlName="clubName"
+                     [class.is-invalid]="requestForm.get('clubName')?.invalid && (requestForm.get('clubName')?.touched || isSubmitted)">
+              @if (requestForm.get('clubName')?.invalid && (requestForm.get('clubName')?.touched || isSubmitted)) {
+                <div class="invalid-feedback">
+                  @if (requestForm.get('clubName')?.errors?.['required']) {
+                    <div>حقل اسم النادي مطلوب</div>
+                  }
+                  @if (requestForm.get('clubName')?.errors?.['maxlength']) {
+                    <div>يجب ألا يتجاوز اسم النادي 100 حرف</div>
+                  }
+                </div>
+              }
+            </div>
+          }
+        </fieldset>
+
+        <fieldset class="mb-4">
+          <!-- Schengen Visa -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="hasSchengenVisa" formControlName="hasSchengenVisa">
+            <label class="form-check-label" for="hasSchengenVisa">هل لديك تأشيرة شينجن سارية؟</label>
+          </div>
+
+          @if (requestForm.get('hasSchengenVisa')?.value) {
+            <div class="mb-3">
+              <!-- Display existing visa file if available in edit mode -->
+              @if (isEditMode && visaFilePath) {
+                <div class="mb-2">
+                  <label class="form-label">الملف المرفوع مسبقًا:</label>
+                  @if (isImageFile(visaFilePath)) {
+                    <img [src]="visaFilePath" alt="تأشيرة الشنغن" class="img-thumbnail" style="max-width: 200px;">
+                  } @else {
+                    <a [href]="visaFilePath" target="_blank" class="btn btn-link">عرض ملف تأشيرة الشنغن</a>
+                  }
+                </div>
+              }
+              <label for="visaFile" class="form-label">رفع صورة تأشيرة الشنغن (لاستبدال الملف الحالي أو رفع ملف جديد)</label>
+              <input type="file" class="form-control" id="visaFile" (change)="onFileChange($event, 'visaFile')"
+                     accept=".pdf,.jpg,.jpeg,.png"
+                     [class.is-invalid]="requestForm.get('visaFile')?.invalid && (requestForm.get('visaFile')?.touched || isSubmitted)">
+              @if (requestForm.get('visaFile')?.invalid && (requestForm.get('visaFile')?.touched || isSubmitted)) {
+                <div class="invalid-feedback">
+                  @if (requestForm.get('visaFile')?.errors?.['required']) {
+                    <div>حقل تأشيرة الشنغن مطلوب</div>
+                  }
+                </div>
+              }
+            </div>
+          }
+
+          <!-- Parent Approval -->
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="hasParentApproval" formControlName="hasParentApproval">
+            <label class="form-check-label" for="hasParentApproval">هل لديك موافقة ولي الأمر؟ (للمتقدمين تحت 18 سنة)</label>
+          </div>
+
+          @if (requestForm.get('hasParentApproval')?.value) {
+            <div class="mb-3">
+              <!-- Display existing approval file if available in edit mode -->
+              @if (isEditMode && approvalFilePath) {
+                <div class="mb-2">
+                  <label class="form-label">الملف المرفوع مسبقًا:</label>
+                  @if (isImageFile(approvalFilePath)) {
+                    <img [src]="approvalFilePath" alt="موافقة ولي الأمر" class="img-thumbnail" style="max-width: 200px;">
+                  } @else {
+                    <a [href]="approvalFilePath" target="_blank" class="btn btn-link">عرض ملف موافقة ولي الأمر</a>
+                  }
+                </div>
+              }
+              <label for="approvalFile" class="form-label">رفع موافقة ولي الأمر (لاستبدال الملف الحالي أو رفع ملف جديد)</label>
+              <input type="file" class="form-control" id="approvalFile" (change)="onFileChange($event, 'approvalFile')"
+                     accept=".pdf,.jpg,.jpeg,.png"
+                     [class.is-invalid]="requestForm.get('approvalFile')?.invalid && (requestForm.get('approvalFile')?.touched || isSubmitted)">
+              @if (requestForm.get('approvalFile')?.invalid && (requestForm.get('approvalFile')?.touched || isSubmitted)) {
+                <div class="invalid-feedback">
+                  @if (requestForm.get('approvalFile')?.errors?.['required']) {
+                    <div>حقل موافقة ولي الأمر مطلوب</div>
+                  }
+                </div>
+              }
+            </div>
+          }
+        </fieldset>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary btn-lg" [disabled]="isLoading">
+            @if (isLoading) {
+              <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+            }
+            {{ isEditMode ? 'تحديث الطلب' : 'تقديم الطلب' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

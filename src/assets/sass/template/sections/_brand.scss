@@ -1,0 +1,294 @@
+/* Brand 1 ---------------------------------- */
+.brand-sec1 {
+    position: relative;
+    z-index: 4;
+    border-radius: 10px;
+    max-width: 1420px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: $title-color;
+        border-radius: inherit;
+        clip-path: polygon(0 0, 100% 0, 100% 11px, calc(100% - 70px) 50%, 100% calc(100% - 11px), 100% 100%, 0 100%, 0 calc(100% - 11px), 70px 50%, 0 11px);
+        z-index: -1;
+
+        @include xxl {
+            clip-path: polygon(0 0, 100% 0, 100% 11px, calc(100% - 40px) 50%, 100% calc(100% - 11px), 100% 100%, 0 100%, 0 calc(100% - 11px), 40px 50%, 0 11px);
+        }
+
+        @include xl {
+            clip-path: polygon(0 0, 100% 0, 100% 11px, calc(100% - 30px) 50%, 100% calc(100% - 11px), 100% 100%, 0 100%, 0 calc(100% - 11px), 30px 50%, 0 11px);
+        }
+    }
+
+    @include sm {
+        margin-left: 12px;
+        margin-right: 12px;
+
+        &:after {
+            clip-path: none;
+        }
+    }
+
+    .slick-arrow {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@include sm {
+    .brand-box.py-20 {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+/* Brand 1.1 ---------------------------------- */
+.brand-box1-1 {
+    border-radius: 20px;
+    border: 1px solid #EDF0F4;
+    background: linear-gradient(180deg, #EDF0F4 0%, rgba(237, 240, 244, 0.00) 100%);
+    display: grid;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    min-height: 90px;
+    // filter: grayscale(1) invert(0.3) brightness(1.4);
+    transition: 0.4s ease-in-out;
+
+    img {
+        transition: all 0.4s ease-in-out;
+        transform: scale(0.9);
+    }
+
+    &:hover {
+        filter: none;
+
+        img {
+            transform: scale(1);
+        }
+    }
+}
+
+.brand-title {
+    letter-spacing: -0.4px;
+    font-weight: 600;
+}
+
+/* Brand 4 ---------------------------------- */
+.brand-slider4 {
+    padding-bottom: 60px;
+    border-bottom: 1px solid #D3D3E7;
+}
+
+.brand-slider5 {
+    padding-top: 120px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.brand-slider6 {
+    padding-bottom: 80px;
+}
+
+.brand-item {
+    display: grid;
+    align-content: center;
+    text-align: center;
+    min-height: 40px;
+    transition: 0.4s ease-in-out;
+
+    @include lg {
+        justify-content: center;
+    }
+
+    &.style2 {
+        a {
+            .gray {
+                filter: brightness(140%) grayscale(100%);
+                mix-blend-mode: normal;
+            }
+        }
+    }
+
+    &.style3 {
+        border-radius: 20px;
+        border: 1px solid #EDF0F4;
+        background: linear-gradient(180deg, #EDF0F4 0%, rgba(237, 240, 244, 0.00) 100%);
+        display: grid;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        min-height: 90px;
+        transition: 0.4s ease-in-out;
+    }
+
+    &.style4 {
+        border-radius: 20px;
+        background: #FFFFFF;
+        border: 1px solid #EDF0F4;
+        border-radius: 20px;
+        display: grid;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        min-height: 90px;
+        transition: 0.4s ease-in-out;
+    }
+
+    a {
+        overflow: hidden;
+        display: inline-block;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+
+        .original {
+            transition: all 0.3s ease-in-out;
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+            // filter: grayscale(100%); 
+        }
+
+        .gray {
+            // filter: grayscale(100%);
+            transition: all 0.3s ease-in-out;
+            display: block;
+        }
+
+        &:hover {
+            .original {
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                display: block;
+                opacity: 3;
+                visibility: visible;
+                transform: translateY(0%);
+                // filter: grayscale(0%);
+            }
+
+            .gray {
+                display: block;
+                visibility: hidden;
+                transform: translateY(100%);
+                // filter: grayscale(100%);
+            }
+        }
+    }
+}
+
+/*brand 6 start --------------------------------*/
+.brand-sec6 {
+    padding: 81px 30px;
+    border-radius: 30px;
+}
+
+/*brand 6 end --------------------------------*/
+
+/*brand 7 start --------------------------------*/
+
+
+/*brand 7 end --------------------------------*/
+/*brand 8 start --------------------------------*/
+.brand-slider8-area {
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    background-color: #EFF1F9;
+    padding: 30px 80px;
+    max-width: 1163px;
+    border-radius: 0 50px 50px 0px;
+    z-index: 2;
+
+    @include lg {
+        max-width: 100%;
+    }
+}
+
+.brand-slider8 {
+    max-width: 1003px;
+}
+
+
+/*brand 8 end --------------------------------*/
+
+/* brand 9 start --------------------------------*/
+.brand-sec8 {
+    padding: 80px 0 30px 0;
+}
+
+.brand-box {
+    &.style4 {
+        background-color: $white-color;
+        border: 1px solid #EDF0F4;
+        border-radius: 20px;
+        padding: 30px 40px;
+        width: 240px;
+        height: 90px;
+        display: block;
+        margin: auto;
+
+    }
+}
+
+/* brand 9 end --------------------------------*/
+
+/* brand 10 start -------------------*/
+.brand-title9 {
+    span {
+        display: inline-block;
+        position: relative;
+        color: $theme-color;
+
+        &:after {
+            content: "";
+            height: 15px;
+            width: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='215' height='19' viewBox='0 0 215 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 16.9999C37.6667 5.9999 129.8 -9.4001 213 16.9999' stroke='%23407360' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+            background-size: cover;
+            background-repeat: repeat-x;
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+            animation: titleFill 3s linear infinite;
+        }
+    }
+}
+
+/* brand 10 end -------------------*/
+
+/* brand 11 start ---------------------*/
+.brand-sec11 {
+    position: relative;
+    background-color: $white-color;
+    box-shadow: 0px 14px 70px rgba(0, 0, 0, 0.04);
+    border-radius: 24px;
+    padding: 30px;
+    margin-top: -80px;
+    z-index: 9;
+}
+
+/* brand 11 end -------------------*/
+/* brand 12 start ---------------------*/
+.brand-area12 {
+    background-color: #1C1C25;
+    padding: 30px 0;
+}
+
+/* brand 12 end ---------------------*/
+
+/* Brand 13 start  ---------------------------------- */
+.brand-slider13 {
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+/* Brand 13 end  ---------------------------------- */

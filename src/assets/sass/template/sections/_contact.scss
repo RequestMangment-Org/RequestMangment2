@@ -1,0 +1,689 @@
+/* Contact 1 ---------------------------------- */
+.appoitment-form {
+
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        background-color: $white-color;
+        border: 1px solid $border-color;
+    }
+}
+
+.appointment-form2 {
+    margin-left: 75px;
+
+    @include xl {
+        margin-left: 40px;
+    }
+
+    @include lg {
+        margin-left: 0;
+    }
+
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        background-color: $white-color;
+        border: none;
+        color: $body-color;
+        font-weight: 400;
+        border-radius: 100px;
+
+        @include inputPlaceholder {
+            color: $body-color;
+        }
+
+    }
+
+    textarea.form-control,
+    textarea {
+        min-height: 150px;
+        border-radius: 20px;
+    }
+
+    .th-btn {
+        padding: 20px 51px;
+        margin-top: 10px;
+    }
+
+    .row {
+        --bs-gutter-x: 11px;
+    }
+}
+
+.contact-feature {
+    &-wrap {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 24px;
+        border-top: 1px solid $border-color;
+        padding-top: 40px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: $white-color;
+    box-shadow: 0px 10px 30px rgba(8, 14, 28, 0.06);
+    border-radius: 5px;
+
+    .icon-btn {
+        background-color: $theme-color;
+        color: $white-color;
+        font-size: 24px;
+        box-shadow: 0px 6px 20px rgba(0, 96, 255, 0.6);
+        border-radius: 5px;
+        border: none;
+    }
+
+    &_label {
+        margin-bottom: 0;
+    }
+
+    &_link {
+        font-size: 20px;
+        font-weight: 600;
+        color: $title-color;
+
+        &:hover {
+            color: $theme-color;
+        }
+    }
+}
+
+@include xl {
+    .contact-feature {
+        padding: 20px;
+    }
+}
+
+@include sm {
+    .contact-feature {
+        &-wrap {
+            gap: 15px;
+        }
+
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+@include xs {
+    .contact-feature {
+        &-wrap {
+            grid-template-columns: auto;
+        }
+
+        padding: 22px;
+    }
+}
+
+/* Quote Form faq page ----------------------- */
+.quote-form {
+    background: $white-color;
+    box-shadow: 0px 10px 30px rgba(8, 14, 28, 0.06);
+    border-radius: 5px;
+    padding: 50px;
+
+    @include xs {
+        padding: 40px 20px;
+    }
+
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        background-color: $smoke-color2;
+    }
+
+    .form-group {
+        >i {
+            background-color: $smoke-color2;
+            width: 18px;
+            text-align: right;
+        }
+    }
+}
+
+/* Contact Page ---------------------------------- */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    box-shadow: 0px 4px 30px rgba(8, 14, 28, 0.08);
+    border-radius: 5px;
+    background-color: $white-color;
+    padding: 40px;
+
+    .box-title {
+        margin-bottom: 10px;
+    }
+
+    &_icon {
+        display: inline-block;
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        line-height: 80px;
+        background-color: $theme-color;
+        color: $white-color;
+        text-align: center;
+        font-size: 40px;
+        position: relative;
+        box-shadow: 0px 6px 20px rgba(0, 96, 255, 0.6);
+        border-radius: 5px;
+    }
+
+    &_text {
+        min-width: 180px;
+        display: block;
+        margin-bottom: -0.5em;
+        font-family: $body-font;
+
+        span,
+        a {
+            display: block;
+            max-width: fit-content;
+        }
+
+        a {
+            color: $body-color;
+
+            &:hover {
+                color: $theme-color;
+            }
+        }
+    }
+}
+
+.contact-form {
+
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        background-color: $white-color;
+    }
+
+    .form-group {
+        >i {
+            background-color: $white-color;
+            color: $theme-color;
+            width: 18px;
+            text-align: right;
+        }
+    }
+}
+
+.map-sec {
+    line-height: 0px;
+
+    iframe {
+        filter: grayscale(100);
+        height: 600px;
+
+        @include xl {
+            height: 450px;
+        }
+
+        @include xs {
+            height: 300px;
+        }
+    }
+}
+
+@include xs {
+    .contact-info {
+        padding: 30px;
+    }
+}
+
+@include vxs {
+    .contact-info {
+        flex-direction: column;
+    }
+}
+
+/* Appointment Area 3 ---------------------------------- */
+.appointment-area-wrapp {
+    background-color: $white-color;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-left: 50px;
+
+    @include lg {
+        margin: 0;
+    }
+
+
+    .title {
+        border-bottom: 1px solid #E4E6EA;
+        padding: 40px 50px 20px 50px;
+        margin-bottom: 0;
+    }
+}
+
+.appointment-form3 {
+    position: relative;
+    padding: 35px 50px 50px;
+    border-radius: 30px;
+    background-color: $white-color;
+
+    @include sm {
+        padding: 40px;
+    }
+
+    @include xs {
+        padding: 30px;
+    }
+
+    .form-group {
+
+        label {
+            color: $body-color;
+            font-size: 14px;
+        }
+
+        i {
+            color: $theme-color;
+        }
+    }
+
+    select,
+    .form-control,
+    .form-select,
+    .nice-select,
+    textarea,
+    input {
+        border: 1px solid #E4E6EA;
+        background-color: var(--white-color);
+        height: 50px;
+        border-radius: 5px;
+
+    }
+
+
+    textarea.form-control,
+    textarea {
+        min-height: 120px;
+    }
+
+    .th-btn {
+        border-radius: 5px;
+    }
+}
+
+/* contact 5 start -------------------*/
+.contact-area5 {
+    position: relative;
+    max-width: 1760px;
+    border-radius: 30px;
+    margin: auto auto 120px auto;
+    overflow: hidden;
+
+    @include md {
+        margin-bottom: 80px;
+    }
+
+}
+
+.sec-text {
+    &.style3 {
+        @include lg {
+            display: block;
+            margin: auto;
+        }
+    }
+
+}
+
+.contact-btn {
+    .th-btn {
+        text-transform: capitalize;
+        font-size: 16px;
+        padding: 20px 50px;
+
+
+    }
+
+    @include lg {
+        text-align: center;
+    }
+
+}
+
+.contact-shape {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @include xl {
+        right: -10%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    @include lg {
+        display: none;
+    }
+}
+
+/* contact 6 */
+.contact-feature-area {
+    display: flex;
+    justify-content: flex-start;
+    gap: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 15px;
+    padding-top: 54px;
+
+    @include xl {
+        gap: 15px;
+    }
+
+    @include lg {
+        gap: 40px;
+    }
+
+    @include sm {
+        display: block;
+    }
+
+    .feature-wrapper.style3 {
+        margin-bottom: 0;
+
+        .header-info_link {
+            @include vxs {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .th-social {
+        .social-title {
+            display: block;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 19px;
+            color: #656A74;
+            margin-bottom: 15px;
+        }
+
+        a {
+            --icon-size: 35px;
+            color: $theme-color;
+        }
+
+        @include sm {
+            margin-top: 20px;
+        }
+    }
+}
+
+.contact-text {
+    font-family: $body-font;
+    font-size: 18px;
+    color: #C7C7C7;
+}
+
+/* contact area start ----------------------*/
+.contact-form2 {
+    background-color: $white-color;
+    border-radius: 20px;
+    padding: 50px;
+
+    @include xs {
+        padding: 40px;
+    }
+
+    @include vxs {
+        padding: 30px;
+    }
+
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        height: 56px;
+        border: 1px solid #E4E6EA;
+        color: var(--body-color);
+        background-color: transparent;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    textarea.form-control,
+    textarea {
+        min-height: 136px;
+    }
+
+    .form-group {
+        &:last-child {
+            margin: 0;
+        }
+
+        i {
+            color: $theme-color;
+        }
+
+        label {
+            color: #A1A6B0;
+            font-size: 14px;
+            margin-top: 40px;
+            margin-bottom: 0;
+        }
+    }
+
+    .form-btn {
+        margin-top: 34px;
+    }
+
+}
+
+.contact-item {
+    background-color: $white-color;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    gap: 15px;
+
+    &:not(:last-child) {
+        margin-bottom: 24px;
+    }
+
+    &_icon {
+        font-size: 30px;
+        line-height: 30px;
+        color: $theme-color;
+    }
+
+    &_label {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #A1A6B0;
+        margin-bottom: 0;
+    }
+
+    &_link,
+    &_text {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        display: block;
+        margin-bottom: -0.3rem;
+
+        &:not(:hover) {
+            color: $title-color;
+        }
+    }
+}
+
+/* contact area start ----------------------*/
+
+/* contact area start ----------------------*/
+.contact-area8 {
+    background-color: #EFF1F9;
+    border-radius: 30px;
+    max-width: 1760px;
+    display: block;
+    margin: auto;
+
+    @include xxl {
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+}
+
+.contact-form2 {
+    &.style2 {
+        background-color: $white-color;
+        border: 1px solid #E3E7F0;
+        border-radius: 20px;
+
+    }
+}
+
+/* contact area end ----------------------*/
+
+/* contact9 area start ------------------------*/
+.contact-area9 {
+    background-color: #1C1C25;
+    border-radius: 40px;
+}
+
+.sec-text2 {
+    font-size: 22px;
+    max-width: 994px;
+}
+
+.contact-btn-group {
+    justify-content: center;
+    margin-bottom: 100px;
+
+    .call-btn {
+        .btn-text {
+            color: $white-color;
+        }
+
+        .btn-title {
+            color: $white-color;
+            font-weight: 400;
+        }
+
+        .play-btn {
+
+            &:before,
+            &:after {
+                background-color: $white-color;
+            }
+
+            >i {
+                background-color: $white-color;
+                color: $theme-color;
+
+                &:hover {
+                    background-color: $theme-color;
+                    color: $white-color;
+                }
+            }
+        }
+    }
+
+}
+
+/* contact9 area end ------------------------*/
+
+/* contact area 10 start -------------*/
+.contact-form3 {
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+    padding: 50px;
+    @include sm {
+        padding: 40px;
+    }
+    @include vxs {
+        padding: 30px; 
+    }
+
+    select,
+    .form-control,
+    .form-select,
+    textarea,
+    input {
+        height: 56px;
+        padding: 0 25px 0 25px;
+        padding-right: 45px;
+        border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.20);
+        background-color: transparent;
+        font-size: 14px;
+        width: 100%;
+        font-family: var(--body-font);
+        -webkit-transition: 0.4s ease-in-out;
+        transition: 0.4s ease-in-out;
+    }
+
+    .form-group {
+        i {
+            color: $theme-color;
+        }
+    }
+
+    input[type="checkbox"]~label:before {
+        background-color: transparent;
+        border: 1px solid $theme-color;
+    }
+    label {
+        color: #A1A6B0;
+        font-size: 14px;
+    }
+
+    textarea.form-control,
+    textarea {
+        min-height: 136px;
+        padding-top: 16px;
+        padding-bottom: 17px;
+    }
+    .th-btn {
+        text-transform: capitalize;
+        border-radius: 30px;
+        font-weight: 500;
+    }
+}
+
+.contact-map2 {
+    mask-repeat: no-repeat;
+    text-align: right;
+    background-size: cover;
+    background-position: center right;
+    @include sm {
+        background-size: 100%;
+    }
+
+    iframe {
+        border: none;
+        width: 100%;
+        height: 664px;
+        @include sm {
+            height: 400px;
+        }
+    }
+}
